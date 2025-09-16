@@ -1,4 +1,33 @@
 class Product:
+    """
+    A class representing a product in a store.
+
+    The Product class stores information about a single product,
+    including its name, price, quantity, and active status. It provides
+    methods to check availability, update stock, display details, and
+    process purchases.
+
+    Attributes:
+        name (str): The name of the product. Cannot be empty.
+        price (float): The price of the product. Must be non-negative.
+        quantity (int): The number of items in stock. Must be non-negative.
+        active (bool): Indicates whether the product is available for sale.
+
+    Methods:
+        get_quantity() -> int:
+            Returns the current quantity of the product in stock.
+        set_quantity(quantity: int):
+            Updates the product quantity. Deactivates the product if quantity is 0.
+        is_active() -> bool:
+            Returns True if the product is active, False otherwise.
+        activate():
+            Reactivates the product if quantity > 0.
+        show() -> str:
+            Returns a string representation of the product details.
+        buy(quantity: int) -> float:
+            Reduces the stock by the specified quantity and returns the total price.
+            Raises an exception if quantity is invalid or exceeds available stock.
+    """
     def __init__(self, name: str, price: float, quantity: int):
         # Check
         if not name or name.strip() == "":
