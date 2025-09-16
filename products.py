@@ -31,11 +31,11 @@ class Product:
     def __init__(self, name: str, price: float, quantity: int):
         # Check
         if not name or name.strip() == "":
-            raise ValueError("Name cannot be empty.")
+            raise ValueError("⚠️Name cannot be empty.")
         if price < 0:
-            raise ValueError("Price cannot be negative.")
+            raise ValueError("⚠️Price cannot be negative.")
         if quantity < 0:
-            raise ValueError("Quantity cannot be negative.")
+            raise ValueError("⚠️Quantity cannot be negative.")
 
 
         # Instance Variable
@@ -51,7 +51,7 @@ class Product:
     def set_quantity(self, quantity):
         """Update quantity (cannot be negative). Deactivate if zero."""
         if quantity < 0:
-            raise ValueError("Quantity cannot be negative.")
+            raise ValueError("⚠️Quantity cannot be negative.")
         self.quantity = quantity
         if self.quantity == 0:
             self.active = False
@@ -76,9 +76,9 @@ class Product:
         Reduce stock and return total price.
         """
         if quantity <= 0:
-            raise ValueError("Quantity must be positive.")
+            raise ValueError("⚠️Quantity must be positive.")
         if quantity > self.quantity:
-            raise ValueError("Not enough stock available.")
+            raise ValueError("⚠️Not enough stock available.")
 
         total_price = quantity * self.price
         self.set_quantity(self.quantity - quantity)

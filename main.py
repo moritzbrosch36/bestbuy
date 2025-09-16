@@ -58,7 +58,7 @@ def start(store: Store):
         elif choice == "3":
             products = store.get_all_products()
             if not products:
-                print("No products available in store.")
+                print("⚠️No products available in store.")
                 continue
 
             print("------")

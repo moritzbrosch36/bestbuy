@@ -56,16 +56,18 @@ class Store:
         """
         total_price = 0.0
 
-        # Erste Validierung: check ob alle Bestellungen möglich sind
+        # First validation: check if all orders are possible
         for product, quantity in shopping_list:
             if product not in self.products:
-                raise ValueError(f"Product {product.name} not found in store.")
+                raise ValueError(f"⚠️Product {product.name} not found in store.")
             if quantity > product.get_quantity():
                 raise ValueError(
-                    f"Not enough stock of {product.name}. Requested {quantity}, available {product.get_quantity()}."
+                    f"⚠️Not enough stock of {product.name}. "
+                    f"Requested {quantity}, "
+                    f"available {product.get_quantity()}."
                 )
 
-        # Wenn alles passt → Bestellung ausführen
+        # If everything is correct → Place order
         for product, quantity in shopping_list:
             total_price += product.buy(quantity)
 
