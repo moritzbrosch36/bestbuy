@@ -63,7 +63,9 @@ def start(store: Store):
 
             print("------")
             for idx, product in enumerate(products, start=1):
-                print(f"{idx}. {product.name}, Price: ${product.price}, Quantity: {product.quantity}")
+                print(f"{idx}. {product.name}, "
+                      f"Price: ${product.price}, "
+                      f"Quantity: {product.quantity}")
             print("------")
             print("When you want to finish order, enter empty text.")
 
