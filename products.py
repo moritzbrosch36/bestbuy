@@ -38,7 +38,9 @@ class Product:
 
     def show(self):
         """Return product details as a string"""
-        return f"{self.name}, Price: {self.price}, Quantity: {self.quantity}, Active: {self.active}"
+        return (f"{self.name}, Price: {self.price}, "
+                f"Quantity: {self.quantity}, "
+                f"Active: {self.active}")
 
     def buy(self, quantity) -> float:
         """Buy given quantity of the product.
