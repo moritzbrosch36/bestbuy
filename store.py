@@ -4,29 +4,29 @@ from products import Product  # class Product in products.py
 
 class Store:
     """
-    Start the interactive console menu for the store.
+    A class that represents a store containing multiple products.
 
-    Args:
-        store (Store): An instance of the Store class containing available products.
+    The Store class manages an inventory of Product objects,
+    allows adding and removing products, and provides utility
+    methods to retrieve available products, total quantities,
+    and to process customer orders.
 
-    The menu provides the following options:
-        1. List all products in the store.
-        2. Show the total quantity of items in the store.
-        3. Make an order by selecting products and quantities.
-        4. Quit the program.
+    Attributes:
+        products (List[Product]): A list of Product objects available in the store.
 
-    Behavior:
-        - If option 1 is chosen, all active products with details will be listed.
-        - If option 2 is chosen, the sum of all available quantities will be shown.
-        - If option 3 is chosen, the user can build an order by repeatedly selecting
-          product numbers and quantities until they finish. The program then calculates
-          and displays the total order cost.
-        - If option 4 is chosen, the program will exit gracefully.
-
-    Input validation:
-        - Ensures menu choices are between 1 and 4.
-        - Ensures product selections and quantities are valid numbers.
-        - Prevents invalid or empty orders from being processed.
+    Methods:
+        add_product(product: Product):
+            Add a product to the store.
+        remove_product(product: Product):
+            Remove a product from the store if it exists.
+        get_total_quantity() -> int:
+            Return the total quantity of all products in the store.
+        get_all_products() -> List[Product]:
+            Return all products that are currently active (available for purchase).
+        order(shopping_list: List[Tuple[Product, int]]) -> float:
+            Accepts a shopping list of (Product, quantity) tuples,
+            validates availability, processes the purchase, and returns
+            the total price of the order.
     """
     def __init__(self, products: List[Product] = None):
         """Initialize store with an optional list of products."""
